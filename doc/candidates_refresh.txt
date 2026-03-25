@@ -1,0 +1,49 @@
+=== Python | Python 零基础 全套 教程 2024
+2024-08-22	BV1rpWjevEip	dur=39h58m	view=15384745	like=371998	reply=272160	Python官方课程	【全748集】目前B站最全最细的Python零基础全套教程，2026最新版，包含所有干货！七天就能从小白到大神！少走99%的弯路！存下吧！很难找全的！
+2025-11-26	BV1sHU9BmEne	dur=44h33m	view=2414585	like=17498	reply=2538	黑马程序员	黑马程序员Python+AI零基础入门到大神全套视频课程，覆盖Python核心语法、AI应用、数据分析及Web应用等python实战项目开发全流程
+2025-10-21	BV1tDsgzxECr	dur=39h19m	view=1377789	like=6941	reply=11526	尚硅谷	python零基础教程，Python入门到大神，AI人工智能必备(因为禹神，爱上python)
+2023-03-29	BV1Ys4y1D72T	dur=18h28m	view=2342852	like=50011	reply=4759	逊哥带你学计算机	国家计算机二级python零基础上岸也许是全网讲的最清楚的二级python教程不拖泥带水捞干的（持续更新中......）
+2024-07-21	BV1gb421J7u2	dur=60h03m	view=886874	like=37726	reply=10188	Python官方课程	【整整600集】全B站最用心的Python零基础教程，2024最新版，带你7天搞定Python全栈，包含所有干货！0基础小白看这套就够了，存下吧，很难找全的！
+2025-07-09	BV1D9GLzyEL6	dur=16h38m	view=1274518	like=7856	reply=1089	尚硅谷	Python数据分析教程，零基础学会numpy+pandas+matplotlib数据分析，数据可视化
+2026-03-16	BV1mowLzjESf	dur=61h34m	view=186140	like=6122	reply=5123	Python零基础官方课程	【Python教程】这绝对是26年B站最全的Python零基础全套教程（包含爬虫+数据分析），全程干货无废话，一周从小白到大神！存下吧！学完即可接单就业！
+2026-02-23	BV1tQfiB8Evj	dur=15h29m	view=503059	like=133093	reply=1	python教学圈1	【全100集】2026年B站最完整最细的Python零基础入门全套教程，全程干货无废话！带你一周搞定Python，0基础小白看这套Python入门教程就够了！
+
+=== Docker | Docker 入门 项目部署 DockerCompose 2024
+2023-09-12	BV1HP4118797	dur=3h13m	view=651960	like=9087	reply=1094	黑马程序员	黑马程序员Docker快速入门到项目部署，MySQL部署+Nginx部署+docker自定义镜像+DockerCompose项目实战一套搞定
+2024-03-06	BV1nW421w7Hc	dur=19h46m	view=54937	like=1139	reply=820	云原生技术架构	2024最新最全最详细的Docker入门教程，800分钟技术精讲（docker教程/docker容器/docker镜像/k8s）
+2023-10-08	BV1FC4y157gK	dur=9h43m	view=45891	like=1339	reply=205	三更草堂	Docker实战教程-从零到实战-Docker容器化-DockerFile&DockerCompose-挑战尚硅谷&黑马
+2026-03-12	BV1Smczz2Egn	dur=1h18m	view=12147	like=266	reply=59	恋恋风辰zack	保姆级教程Docker部署OpenClaw
+2025-08-05	BV1Tt4dzdERJ	dur=3h59m	view=9899	like=194	reply=37	小薛博客官方	2026最全从0到1掌握项目部署：Linux、Docker、Jenkins实战
+2024-06-25	BV12b421H7Vc	dur=4h20m	view=3810	like=36	reply=18	孟哥说Java	最新Docker快速入门到实战项目部署，MySQL部署+Nginx部署+docker自定义镜像+DockerCompose服务编排
+2024-01-18	BV14V411X7K9	dur=1h07m	view=3215	like=57	reply=6	写代码的猫叔	5分钟快速学会用docker 实战项目课 2024年了我不允许谁还不会用docker python redis mysql nginx apache
+2024-01-14	BV1ic411x7nx	dur=1h03m	view=582	like=16	reply=1	小橙子2077	Docker Compose 终极教程
+
+=== Pytest | Pytest 实战 教程 2024
+2025-04-08	BV1rDdHYCEUP	dur=6h54m	view=269684	like=2775	reply=1221	字节测试大佬	B站讲的最好的Pytest自动化测试教程，自动化必备之Pytest测试框架训练营，只需一小时速成，学会直接上手实操！
+2025-10-22	BV1gns8zmEX1	dur=6h05m	view=26310	like=1184	reply=146	字节软件测试工程师	3小时快速入门pytest自动化测试全套教程
+2024-06-19	BV1WigMemE73	dur=3h08m	view=66494	like=1202	reply=780	测试小志	【实战】从0到1搭建基于python的pytest+selenium+allure web自动化测试框架(自制非机构)
+2023-04-08	BV1qX4y167vG	dur=2h48m	view=39243	like=402	reply=73	白月黑羽编程	pytest 自动化测试 项目实战
+2025-12-04	BV1nn2vBUEKd	dur=1h58m	view=7033	like=209	reply=25	pytest自动化测试	B站最详细的Pytest自动化测试框架全套项目实战教程，一小时快速入门pytest
+2025-03-06	BV11jRcYpEVT	dur=2h27m	view=8518	like=184	reply=120	测试小志	【实战】基于python+pytest+allure+locust的接口自动化框架(自制非机构)
+2026-03-06	BV1KuPWzuEsG	dur=9h38m	view=5330	like=51	reply=10	字节软件测试	2026最新pytest自动化测试框架零基础入门到精通，从0到1搭建pytest测试框架到项目实战手把手教
+2026-03-20	BV1p2AnzpE5G	dur=3h06m	view=3039	like=26	reply=10	测试开发架构师	推荐！Pytest自动化测试框架实战，从0到1上手自动化框架！
+
+=== Redis | Redis 7 入门 教程 2024
+2023-02-21	BV13R4y1v7sP	dur=42h06m	view=1042173	like=9412	reply=2291	尚硅谷	Redis教程，redis7零基础到进阶（附redis大厂面试题）
+2023-04-02	BV15L411D7yo	dur=4h38m	view=133007	like=3143	reply=208	浪飞yes	Redis极简入门：纯小白成长为大白，只需4个半小时~
+2023-07-06	BV1rV411M7eU	dur=3h47m	view=136259	like=1419	reply=85	黑马Java	黑马Redis快速入门，一套搞定Redis，常见数据结构及命令，包含Redis应用与优化、springdataRedis应用与优化
+2026-01-09	BV1GBrwB8EQi	dur=2h28m	view=6386	like=201	reply=10	图灵课堂教程	Redis7数据结构全掌握！手把手实战解析String、Hash、List等核心数据结构应用场景，学完立即提升开发效率！
+2023-03-30	BV1Nh41137WL	dur=2h29m	view=27775	like=265	reply=8	AI大模型全栈	【B站推荐】Redis7零基础快速入门教程2023版
+2023-08-23	BV1np4y1n7NS	dur=10h55m	view=15861	like=206	reply=18	千锋教育	千锋教育Redis7入门零基础快速进阶全套教程，讲透Redis7底层原理
+2025-09-17	BV1cfpxzEEMA	dur=2h58m	view=5591	like=27	reply=3	bili_70465851059	Redis快速入门，最详细教程 通俗易懂
+2024-07-10	BV1rT421r71j	dur=5h13m	view=5346	like=147	reply=7	图灵程序员	2024年吃透Redis，一周学会，让你少走99%弯路！【存下吧，这绝对是B站最好的Redis7数据结构实战教程】
+
+=== Prom+Grafana | Prometheus Grafana 监控 告警 教程 2024
+2023-04-09	BV17v4y1H76R	dur=8h24m	view=139563	like=1354	reply=358	林哥Linux	【2023年最新】企业监控Prometheus和Grafana生产实战
+2024-05-27	BV1K1421q7AE	dur=2h46m	view=23773	like=259	reply=49	bili逍遥bili	2024版全新打造Prometheus+Grafana企业级监控系统
+2026-02-17	BV193cizyEJt	dur=2h58m	view=5152	like=43	reply=31	周志华机器学习-	翻遍整个B站，这绝对是2026最新Prometheus+Grafana监控数据可视化实战，Spring Boot整合Prometheus，让你少走99%的弯路！
+2023-12-26	BV1FN4y167LY	dur=5h31m	view=10549	like=644	reply=7	AI大模型全栈	【2024年最新】云原生监控组件Prometheus+Grafana快速入门到实战教程，现在分享给大家！
+2023-03-15	BV1nX4y1f7Jy	dur=1h15m	view=5491	like=88	reply=10	DevOps架构师阿良	Prometheus+Grafana企业主流监控系统
+2026-01-03	BV1yNiYBREG2	dur=2h05m	view=1727	like=29	reply=1	程序员诸葛	Prometheus+Grafana监控数据可视化实战，Spring Boot整合Prometheus，让你少走99%的弯路！
+2026-03-10	BV15zNFzsExG	dur=2h58m	view=951	like=10	reply=9	AI学习大课堂	翻遍整个B站，这绝对是2026最新Prometheus+Grafana监控数据可视化实战，Spring Boot整合Prometheus，让你少走99%的弯路！
+2025-10-20	BV1zTW2zBEWV	dur=2h05m	view=2299	like=13	reply=2	图灵官方诸葛	Prometheus和Grafana监控实战超详细教程，Spring Boot整合Prometheus | k8s部署redis-exporter监控

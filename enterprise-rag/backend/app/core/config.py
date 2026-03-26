@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     app_port: int = 8000
 
     db_path: str = "./rag.db"
+    chroma_path: str = "./chroma_db"
+    chroma_collection: str = "enterprise_docs"
     default_top_k: int = 6
     min_evidence_score: float = 0.15
     max_context_chunks: int = 8

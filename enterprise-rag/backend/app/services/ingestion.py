@@ -7,6 +7,7 @@ from pathlib import Path
 from app.repositories.chunk_repo import replace_chunks_for_doc
 from app.repositories.document_repo import get_document_hash, upsert_document
 from app.services.chunking import split_markdown
+from app.services.vector_store import VectorRecord, upsert_doc_vectors
 
 
 def _sha256(content: str) -> str:
@@ -36,20 +37,35 @@ def ingest_markdown(path: str, owner_dept: str, visibility: str) -> dict:
     )
 
     rows = []
+    vector_rows: list[VectorRecord] = []
     for idx, (section, text) in enumerate(split_markdown(content)):
+        chunk_id = str(uuid.uuid4())
         chunk_hash = _sha256(f"{doc_id}:{idx}:{text}")
+        source_ref = f"{p.resolve()}#chunk-{idx}"
         rows.append(
             {
-                "id": str(uuid.uuid4()),
+                "id": chunk_id,
                 "doc_id": doc_id,
                 "section": section,
                 "idx": idx,
                 "text": text,
                 "chunk_hash": chunk_hash,
                 "visibility": visibility,
-                "source_ref": f"{p.resolve()}#chunk-{idx}",
+                "source_ref": source_ref,
             }
+        )
+        vector_rows.append(
+            VectorRecord(
+                chunk_id=chunk_id,
+                doc_id=doc_id,
+                title=p.stem,
+                section=section,
+                visibility=visibility,
+                source_ref=source_ref,
+                text=text,
+            )
         )
 
     chunk_count = replace_chunks_for_doc(doc_id, rows)
+    upsert_doc_vectors(doc_id, vector_rows)
     return {"doc_id": doc_id, "status": "indexed", "chunks": chunk_count}

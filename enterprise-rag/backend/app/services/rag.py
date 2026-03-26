@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from time import perf_counter
+from typing import Optional
 import uuid
 
 from app.core.config import get_settings
@@ -32,7 +33,7 @@ def _build_refusal(reason: str, request_id: str) -> AskResponse:
     )
 
 
-def ask(query: str, user_id: str, role: str, dept: str, top_k: int | None = None) -> RagResult:
+def ask(query: str, user_id: str, role: str, dept: str, top_k: Optional[int] = None) -> RagResult:
     started = perf_counter()
     settings = get_settings()
     request_id = str(uuid.uuid4())
@@ -44,10 +45,21 @@ def ask(query: str, user_id: str, role: str, dept: str, top_k: int | None = None
         return RagResult(payload=response, retrieved_ids=[])
 
     user = UserIdentity(user_id=user_id, role=role, dept=dept)
-    results = retrieve(query=query, user=user, top_k=k)
+    retrieval = retrieve(query=query, user=user, top_k=k, min_score=settings.min_evidence_score)
+    results = retrieval.visible_hits
+
+    hidden_is_dominant = (
+        retrieval.hidden_top_score >= settings.min_evidence_score
+        and retrieval.hidden_top_score > (retrieval.visible_top_score + 0.05)
+    )
+    if hidden_is_dominant:
+        response = _build_refusal("permission_denied", request_id)
+        _write_log(response, query, user_id, role, dept, [r["id"] for r in results], started)
+        return RagResult(payload=response, retrieved_ids=[r["id"] for r in results])
 
     if len(results) < 2 or (results and results[0]["score"] < settings.min_evidence_score):
-        response = _build_refusal("evidence_insufficient", request_id)
+        reason = "permission_denied" if retrieval.has_hidden_relevant_hits else "evidence_insufficient"
+        response = _build_refusal(reason, request_id)
         _write_log(response, query, user_id, role, dept, [r["id"] for r in results], started)
         return RagResult(payload=response, retrieved_ids=[r["id"] for r in results])
 

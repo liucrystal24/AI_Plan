@@ -1,39 +1,48 @@
 from __future__ import annotations
 
-from collections import Counter
-from math import sqrt
+from dataclasses import dataclass
+from typing import Optional
 
-from app.repositories.chunk_repo import list_all_chunks
 from app.schemas.chat import UserIdentity
 from app.services.permissions import can_access
+from app.services.vector_store import query_vectors
 
 
-def _tokenize(text: str) -> list[str]:
-    return [t for t in text.lower().replace("\n", " ").split(" ") if t]
+@dataclass
+class RetrievalResult:
+    visible_hits: list[dict]
+    has_hidden_relevant_hits: bool
+    visible_top_score: float
+    hidden_top_score: float
 
 
-def _cosine_similarity(a: Counter, b: Counter) -> float:
-    common = set(a.keys()) & set(b.keys())
-    dot = sum(a[k] * b[k] for k in common)
-    na = sqrt(sum(v * v for v in a.values()))
-    nb = sqrt(sum(v * v for v in b.values()))
-    if na == 0 or nb == 0:
-        return 0.0
-    return dot / (na * nb)
+def _visible_filter(user: UserIdentity) -> Optional[dict]:
+    if user.role == "admin":
+        return None
+    allowed = ["employee:all", f"employee:dept:{user.dept}"]
+    return {"visibility": {"$in": allowed}}
 
 
-def retrieve(query: str, user: UserIdentity, top_k: int) -> list[dict]:
-    query_vec = Counter(_tokenize(query))
-    candidates = []
+def retrieve(query: str, user: UserIdentity, top_k: int, min_score: float) -> RetrievalResult:
+    visible_hits = query_vectors(query=query, top_k=top_k, where=_visible_filter(user))
+    all_hits = query_vectors(query=query, top_k=max(10, top_k * 3), where=None)
 
-    for row in list_all_chunks():
-        if not can_access(row["visibility"], user):
-            continue
-        score = _cosine_similarity(query_vec, Counter(_tokenize(row["text"])))
-        if score > 0:
-            row = dict(row)
-            row["score"] = score
-            candidates.append(row)
+    visible_top = max([hit.get("score", 0.0) for hit in visible_hits], default=0.0)
+    hidden_scores = [
+        hit.get("score", 0.0)
+        for hit in all_hits
+        if not can_access(hit.get("visibility", ""), user)
+    ]
+    hidden_top = max(hidden_scores, default=0.0)
 
-    candidates.sort(key=lambda x: x["score"], reverse=True)
-    return candidates[:top_k]
+    hidden_relevant = any(
+        (not can_access(hit.get("visibility", ""), user)) and hit.get("score", 0.0) >= min_score
+        for hit in all_hits
+    )
+
+    return RetrievalResult(
+        visible_hits=visible_hits,
+        has_hidden_relevant_hits=hidden_relevant,
+        visible_top_score=visible_top,
+        hidden_top_score=hidden_top,
+    )

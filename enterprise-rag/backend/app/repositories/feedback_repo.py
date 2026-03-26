@@ -1,10 +1,13 @@
+from __future__ import annotations
+
 from datetime import datetime, timezone
 import uuid
+from typing import Optional
 
 from app.repositories.db import get_conn
 
 
-def add_feedback(query_log_id: str, vote: str, reason: str | None = None) -> str:
+def add_feedback(query_log_id: str, vote: str, reason: Optional[str] = None) -> str:
     feedback_id = str(uuid.uuid4())
     conn = get_conn()
     conn.execute(

@@ -21,4 +21,4 @@ services:
     volumes:
       - ../frontend:/app
     working_dir: /app
-    command: npm run dev -- --host
+    command: pnpm run dev -- --host

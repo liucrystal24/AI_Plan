@@ -5,4 +5,7 @@ __pycache__/
 node_modules/
 dist/
 rag.db
+backend/rag.db
+chroma_db/
+backend/chroma_db/
 .vscode/

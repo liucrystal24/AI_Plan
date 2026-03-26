@@ -2,6 +2,7 @@
   "name": "enterprise-rag-frontend",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.18.2",
   "type": "module",
   "scripts": {
     "dev": "vite",

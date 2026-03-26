@@ -7,10 +7,10 @@ backend-run:
 	cd backend && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 frontend-install:
-	cd frontend && npm install
+	cd frontend && pnpm install
 
 frontend-run:
-	cd frontend && npm run dev -- --host
+	cd frontend && pnpm run dev -- --host
 
 ingest:
 	cd backend && PYTHONPATH=. python scripts/import_docs.py --path ../data/raw_docs --owner-dept finance --visibility employee:all

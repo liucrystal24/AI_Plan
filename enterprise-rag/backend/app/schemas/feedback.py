@@ -1,7 +1,11 @@
+from __future__ import annotations
+
+from typing import Optional
+
 from pydantic import BaseModel
 
 
 class FeedbackRequest(BaseModel):
     query_log_id: str
     vote: str
-    reason: str | None = None
+    reason: Optional[str] = None

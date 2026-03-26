@@ -25,8 +25,10 @@ enterprise-rag/
 ```bash
 cd backend
 cp .env.example .env
+python3 -m venv .venv
+. .venv/bin/activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+DB_PATH=$(pwd)/rag.db CHROMA_PATH=$(pwd)/chroma_db uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 健康检查：`GET http://localhost:8000/health`
@@ -35,15 +37,19 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```bash
 cd backend
-PYTHONPATH=. python scripts/import_docs.py --path ../data/raw_docs --owner-dept finance --visibility employee:all
+PYTHONPATH=. .venv/bin/python scripts/import_docs.py --path ../data/raw_docs --owner-dept finance --visibility employee:all
+
+# 示例：导入部门私有文档，用于权限拒答测试
+PYTHONPATH=. .venv/bin/python scripts/import_docs.py --path ../data/raw_docs/B部门私密手册.md --owner-dept dept-b --visibility employee:dept:dept-b
 ```
 
 ## 4. 前端启动
 
 ```bash
 cd frontend
-npm install
-npm run dev -- --host
+corepack enable
+pnpm install
+pnpm run dev -- --host
 ```
 
 访问：`http://localhost:5173`
@@ -52,13 +58,18 @@ npm run dev -- --host
 
 ```bash
 cd backend
-PYTHONPATH=. python eval/run.py --dataset ../data/eval/eval_cases.jsonl --output ./eval/report.json
+PYTHONPATH=. .venv/bin/python eval/run.py --dataset ../data/eval/eval_cases.jsonl --output ./eval/report.json
 ```
+
+门禁默认阈值：
+- 引用率 >= 0.95
+- 拒答准确率 >= 0.90
+- 越权率 <= 0.0
 
 ## 6. 当前实现与需求映射
 
-- 已实现：RAG 基本闭环、引用返回、拒答输出、SSE、反馈、日志、离线评测入口。
-- 待迭代：真实 Embedding + 向量库（Chroma）、混合检索/BM25、重排模型、权限拒答更精细判定、监控面板与指标落盘。
+- 已实现：真实 Embedding + Chroma 向量检索、权限预过滤检索、权限拒答精判、引用返回、拒答输出、SSE、反馈、日志、离线评测门禁。
+- 待迭代：混合检索/BM25、重排模型、可观测性面板与指标落盘、缓存与限流。
 
 ## 7. API 概览
 
